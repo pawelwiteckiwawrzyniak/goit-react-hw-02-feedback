@@ -1,7 +1,5 @@
-import { Title } from './Title';
-import { Counter } from './Buttons';
-import { StatsTitle } from './StatsTitle';
-import { Statistics } from './Statistics';
+import { Section } from './Section';
+import { HandleStats } from './HandleStatistics';
 
 export const App = () => {
   return (
@@ -11,10 +9,9 @@ export const App = () => {
         color: '#010101',
       }}
     >
-      <Title title="Please leave feedback"></Title>
-      <Counter></Counter>
-      <StatsTitle title="Statistics"></StatsTitle>
-      <Statistics></Statistics>
+      <Section title="Please leave feedback">
+        <HandleStats></HandleStats>
+      </Section>
     </div>
   );
 };
