@@ -1,7 +1,7 @@
 import { Section } from './Section/Section';
 import { Buttons } from './Buttons/Buttons';
 import { Statistics } from './Statistics/Statistics';
-import { Component } from 'react';
+import { Component, Fragment } from 'react';
 
 export class App extends Component {
   static defaultProps = {
@@ -46,21 +46,24 @@ export class App extends Component {
   render() {
     const { good, neutral, bad } = this.state;
     return (
-      <Section title="Please leave feedback">
-        <Buttons
-          handleGood={this.handleClickGood}
-          handleNeutral={this.handleClickNeutral}
-          handleBad={this.handleClickBad}
-        ></Buttons>
-        <h2>Statistics</h2>
-        <Statistics
-          good={good}
-          neutral={neutral}
-          bad={bad}
-          total={this.countTotalFeedback()}
-          positivePercentage={this.countPositiveFeedbackPercentage()}
-        ></Statistics>
-      </Section>
+      <Fragment>
+        <Section title="Please leave feedback">
+          <Buttons
+            handleGood={this.handleClickGood}
+            handleNeutral={this.handleClickNeutral}
+            handleBad={this.handleClickBad}
+          ></Buttons>
+        </Section>
+        <Section title="Statistics">
+          <Statistics
+            good={good}
+            neutral={neutral}
+            bad={bad}
+            total={this.countTotalFeedback()}
+            positivePercentage={this.countPositiveFeedbackPercentage()}
+          ></Statistics>
+        </Section>
+      </Fragment>
     );
   }
 }
